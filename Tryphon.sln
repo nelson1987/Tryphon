@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tryphon.Api", "Tryphon.Api\Tryphon.Api.csproj", "{3769DA5B-A977-4078-BDCF-768176814A07}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tryphon.Domain", "Tryphon.Domain\Tryphon.Domain.csproj", "{EAC908DE-711D-4947-B170-D4616F0F9AC4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tryphon.Infra", "Tryphon.Infra\Tryphon.Infra.csproj", "{448E6169-5CBA-4B1D-9F9B-C654F55864B4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tryphon.Tests", "Tryphon.Tests\Tryphon.Tests.csproj", "{750F981C-34F2-469E-8082-4C6C9FEDBC59}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tryphon.Application", "Tryphon.Application\Tryphon.Application.csproj", "{2F84B762-C26F-437B-99D0-1C07FF80BF66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3769DA5B-A977-4078-BDCF-768176814A07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3769DA5B-A977-4078-BDCF-768176814A07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3769DA5B-A977-4078-BDCF-768176814A07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3769DA5B-A977-4078-BDCF-768176814A07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAC908DE-711D-4947-B170-D4616F0F9AC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC908DE-711D-4947-B170-D4616F0F9AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC908DE-711D-4947-B170-D4616F0F9AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC908DE-711D-4947-B170-D4616F0F9AC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{448E6169-5CBA-4B1D-9F9B-C654F55864B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{448E6169-5CBA-4B1D-9F9B-C654F55864B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{448E6169-5CBA-4B1D-9F9B-C654F55864B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{448E6169-5CBA-4B1D-9F9B-C654F55864B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{750F981C-34F2-469E-8082-4C6C9FEDBC59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{750F981C-34F2-469E-8082-4C6C9FEDBC59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{750F981C-34F2-469E-8082-4C6C9FEDBC59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{750F981C-34F2-469E-8082-4C6C9FEDBC59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F84B762-C26F-437B-99D0-1C07FF80BF66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F84B762-C26F-437B-99D0-1C07FF80BF66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F84B762-C26F-437B-99D0-1C07FF80BF66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F84B762-C26F-437B-99D0-1C07FF80BF66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9918F5C5-74DB-492A-AEE4-98F78FEFF423}
+	EndGlobalSection
+EndGlobal
