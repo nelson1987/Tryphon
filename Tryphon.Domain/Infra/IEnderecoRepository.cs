@@ -2,23 +2,14 @@
 
 namespace Tryphon.Domain.Infra;
 
-public interface IEnderecoRepository
+public interface IEnderecoRepository : IRepository<Endereco>
 {
-    Task<Endereco> CreateAsync(Endereco endereco, CancellationToken cancellationToken = default);
-
-    Task<Endereco> GetById(int id, CancellationToken cancellationToken = default);
 }
 
-public interface ICidadeRepository
+public interface ICidadeRepository : IRepository<Cidade>
 {
-    Task<Cidade> CreateAsync(Cidade cidade, CancellationToken cancellationToken = default);
-
-    Task<Cidade> GetById(int id, CancellationToken cancellationToken = default);
 }
 
-public interface IEstadoRepository
+public interface IEstadoRepository : IRepository<Estado>
 {
-    Task<Estado> CreateAsync(Estado cidade, CancellationToken cancellationToken = default);
-
-    Task<Estado> GetById(int id, CancellationToken cancellationToken = default);
 }

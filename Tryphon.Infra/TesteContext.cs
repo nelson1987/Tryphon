@@ -79,92 +79,53 @@ public class ProcessoRepository : Repository<Processo>, IProcessoRepository
     {
         _testeContext = testeContext;
     }
-}
-
-public class StatusRepository : IStatusRepository
-{
-    private readonly TesteContext _testeContext;
-
-    public StatusRepository(TesteContext testeContext)
+    public async Task<Processo?> GetFirstProcessoAsync(int id, CancellationToken cancellationToken = default)
     {
-        _testeContext = testeContext;
-    }
-
-    public async Task<Status> CreateAsync(Status status, CancellationToken cancellationToken = default)
-    {
-        await _testeContext.AddAsync(status, cancellationToken);
-        return status;
-    }
-
-    public async Task<Status> GetById(int id, CancellationToken cancellationToken = default)
-    {
-        var status = await _testeContext.Status.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
-        return status;
+        return await _testeContext.Set<Processo>()
+            .Include(x => x.Status)
+            .Include(x => x.Endereco)
+                .ThenInclude(x => x.Cidade)
+                    .ThenInclude(x => x.Estado)
+            .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 }
 
-public class CidadeRepository : ICidadeRepository
+public class StatusRepository : Repository<Status>, IStatusRepository
 {
     private readonly TesteContext _testeContext;
 
-    public CidadeRepository(TesteContext testeContext)
+    public StatusRepository(TesteContext testeContext) : base(testeContext)
     {
         _testeContext = testeContext;
-    }
-
-    public async Task<Cidade> CreateAsync(Cidade cidade, CancellationToken cancellationToken = default)
-    {
-        await _testeContext.AddAsync(cidade, cancellationToken);
-        return cidade;
-    }
-
-    public async Task<Cidade> GetById(int id, CancellationToken cancellationToken = default)
-    {
-        var status = await _testeContext.Cidades.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
-        return status;
     }
 }
 
-public class EnderecoRepository : IEnderecoRepository
+public class CidadeRepository : Repository<Cidade>, ICidadeRepository
 {
     private readonly TesteContext _testeContext;
 
-    public EnderecoRepository(TesteContext testeContext)
+    public CidadeRepository(TesteContext testeContext) : base(testeContext)
     {
         _testeContext = testeContext;
-    }
-
-    public async Task<Endereco> CreateAsync(Endereco endereco, CancellationToken cancellationToken = default)
-    {
-        await _testeContext.AddAsync(endereco, cancellationToken);
-        return endereco;
-    }
-
-    public async Task<Endereco> GetById(int id, CancellationToken cancellationToken = default)
-    {
-        var status = await _testeContext.Enderecos.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
-        return status;
     }
 }
 
-public class EstadoRepository : IEstadoRepository
+public class EnderecoRepository : Repository<Endereco>, IEnderecoRepository
 {
     private readonly TesteContext _testeContext;
 
-    public EstadoRepository(TesteContext testeContext)
+    public EnderecoRepository(TesteContext testeContext) : base(testeContext)
     {
         _testeContext = testeContext;
     }
+}
 
-    public async Task<Estado> CreateAsync(Estado cidade, CancellationToken cancellationToken = default)
-    {
-        await _testeContext.AddAsync(cidade, cancellationToken);
-        return cidade;
-    }
+public class EstadoRepository : Repository<Estado>, IEstadoRepository
+{
+    private readonly TesteContext _testeContext;
 
-    public async Task<Estado> GetById(int id, CancellationToken cancellationToken = default)
+    public EstadoRepository(TesteContext testeContext) : base(testeContext)
     {
-        var status = await _testeContext.Estados.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
-        return status;
+        _testeContext = testeContext;
     }
 }

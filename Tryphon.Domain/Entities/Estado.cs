@@ -11,4 +11,5 @@ public class Estado : Entity
     }
 
     public string Sigla { get; private set; }
+    public IReadOnlyCollection<Cidade> Cidades { get; private set; }
 }

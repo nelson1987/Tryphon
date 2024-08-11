@@ -11,4 +11,5 @@ public class Status : Entity
     }
 
     public string Sigla { get; private set; }
+    public IReadOnlyCollection<Processo> Processos { get; private set; }
 }

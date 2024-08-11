@@ -1,4 +1,4 @@
-um﻿using Tryphon.Application.Features.AlteracaoProcesso;
+using Tryphon.Application.Features.AlteracaoProcesso;
 using Tryphon.Application.Features.CriacaoProcesso;
 using Tryphon.Domain.Entities;
 using Tryphon.Domain.Infra;
@@ -42,11 +42,11 @@ public class ProcessoHandler : IProcessoHandler
 
     public async Task<AlteracaoProcessoResponse> Alteracao(AlteracaoProcessoCommand command, CancellationToken cancellationToken = default)
     {
-        var processo = await _unitOfWork.Processos.GetById(command.Id, cancellationToken);
+        var processo = await _unitOfWork.Processos.GetFirstProcessoAsync(command.Id, cancellationToken);
         processo.AlteracaoCodigo(command.Codigo);
 
         await _unitOfWork.SaveChangesAsync(cancellationToken);
-        return new AlteracaoProcessoResponse(processo.Id, processo.StatusId);
+        return new AlteracaoProcessoResponse(processo.Id, processo.Status.Id);
     }
 
     public async Task<AlteracaoProcessoResponse> AlteracaoStatus(AlteracaoStatusProcessoCommand command, CancellationToken cancellationToken = default)
@@ -56,6 +56,6 @@ public class ProcessoHandler : IProcessoHandler
         processo.AlteracaoStatus(status);
 
         await _unitOfWork.SaveChangesAsync(cancellationToken);
-        return new AlteracaoProcessoResponse(processo.Id, processo.StatusId);
+        return new AlteracaoProcessoResponse(processo.Id, processo.Status.Id);
     }
 }

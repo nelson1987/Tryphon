@@ -2,9 +2,6 @@
 
 namespace Tryphon.Domain.Infra;
 
-public interface IStatusRepository
+public interface IStatusRepository : IRepository<Status>
 {
-    Task<Status> CreateAsync(Status processo, CancellationToken cancellationToken = default);
-
-    Task<Status> GetById(int id, CancellationToken cancellationToken = default);
 }

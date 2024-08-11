@@ -13,4 +13,5 @@ public class Endereco : Entity
 
     public string Logradouro { get; private set; }
     public Cidade Cidade { get; private set; }
+    public IReadOnlyCollection<Processo> Processos { get; private set; }
 }

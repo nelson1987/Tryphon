@@ -11,7 +11,5 @@ public interface IRepository<TEntity> where TEntity : class
 
 public interface IProcessoRepository : IRepository<Processo>
 {
-    Task<Processo> CreateAsync(Processo processo, CancellationToken cancellationToken = default);
-
-    Task<Processo> GetById(int id, CancellationToken cancellationToken = default);
+    Task<Processo?> GetFirstProcessoAsync(int id, CancellationToken cancellationToken = default);
 }

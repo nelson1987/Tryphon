@@ -11,8 +11,8 @@ public class Cidade : Entity
         Estado = estado;
     }
 
-    public int EstadoId
-    { get { return Estado.Id; } }
+    public int EstadoId { get; private set; }
     public string Nome { get; private set; }
     public Estado Estado { get; private set; }
+    public IReadOnlyCollection<Endereco> Enderecos { get; private set; }
 }
