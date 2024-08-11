@@ -1,4 +1,4 @@
-﻿using Tryphon.Application.Features.AlteracaoProcesso;
+um﻿using Tryphon.Application.Features.AlteracaoProcesso;
 using Tryphon.Application.Features.CriacaoProcesso;
 using Tryphon.Domain.Entities;
 using Tryphon.Domain.Infra;
@@ -18,11 +18,6 @@ public class ProcessoHandler : IProcessoHandler
     {
         try
         {
-            //var estado = new Estado("RJ");
-            //await _unitOfWork.Estado.CreateAsync(estado, cancellationToken);
-            //await _unitOfWork.Cidade.CreateAsync(new Cidade("Rio de Janeiro", estado), cancellationToken);
-            //await _unitOfWork.Status.CreateAsync(new Status("IN"), cancellationToken);
-            //await _unitOfWork.SaveChangesAsync(cancellationToken);
             var processo = command.MapTo<Processo>();
 
             var status = await _unitOfWork.Status.GetById(command.StatusId, cancellationToken);
@@ -47,7 +42,6 @@ public class ProcessoHandler : IProcessoHandler
 
     public async Task<AlteracaoProcessoResponse> Alteracao(AlteracaoProcessoCommand command, CancellationToken cancellationToken = default)
     {
-        // await _unitOfWork.Status.CreateAsync(new Status("OUT"), cancellationToken); await _unitOfWork.SaveChangesAsync(cancellationToken);
         var processo = await _unitOfWork.Processos.GetById(command.Id, cancellationToken);
         processo.AlteracaoCodigo(command.Codigo);
 
