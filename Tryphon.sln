@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tryphon.Tests", "Tryphon.Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tryphon.Application", "Tryphon.Application\Tryphon.Application.csproj", "{2F84B762-C26F-437B-99D0-1C07FF80BF66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tryphon.IntegrationTests", "Tryphon.IntegrationTests\Tryphon.IntegrationTests.csproj", "{320D926B-9FC3-4E34-AC68-86B1C98E84BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2F84B762-C26F-437B-99D0-1C07FF80BF66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F84B762-C26F-437B-99D0-1C07FF80BF66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F84B762-C26F-437B-99D0-1C07FF80BF66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{320D926B-9FC3-4E34-AC68-86B1C98E84BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{320D926B-9FC3-4E34-AC68-86B1C98E84BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{320D926B-9FC3-4E34-AC68-86B1C98E84BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{320D926B-9FC3-4E34-AC68-86B1C98E84BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
