@@ -1,6 +1,7 @@
 using AutoFixture;
 using AutoFixture.AutoMoq;
 using FluentAssertions;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Tryphon.Api.Controllers;
 using Tryphon.Application.Features;
@@ -30,11 +31,11 @@ public class ProcessosControllerUnitTests
     {
         _handler
             .Setup(x => x.Criacao(_command, _token))
-            .ReturnsAsync(new CriacaoProcessoResponse());
+            .ReturnsAsync(Result<CriacaoProcessoResponse>.Success(new CriacaoProcessoResponse()));
 
         var result = await _sut.PostAsync(_command, _token);
 
-        result.Should().BeOfType<CriacaoProcessoResponse>();
+        result.Should() .BeOfType<CreatedResult>();
         _handler
             .Verify(x => x.Criacao(_command, _token), Times.Once);
         //_resendHandler.Verify(x => x.Handle(It.IsNotNull<AddMovementCommand>(), _token), Times.Once);

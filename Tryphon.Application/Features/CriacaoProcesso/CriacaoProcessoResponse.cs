@@ -1,3 +1,3 @@
 ﻿namespace Tryphon.Application.Features.CriacaoProcesso;
 
-public record CriacaoProcessoResponse();
+public record CriacaoProcessoResponse() : IResponse<CriacaoProcessoCommand>;

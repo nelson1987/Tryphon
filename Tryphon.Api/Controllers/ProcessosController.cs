@@ -17,20 +17,24 @@ public class ProcessosController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<CriacaoProcessoResponse> PostAsync(CriacaoProcessoCommand command, CancellationToken cancellationToken)
+    public async Task<IActionResult> PostAsync(CriacaoProcessoCommand command, CancellationToken cancellationToken)
     {
-        return await _handler.Criacao(command, cancellationToken);
+        var criacao = await _handler.Criacao(command, cancellationToken);
+        return criacao.IsSuccess ? Created() : BadRequest(criacao.Error);
     }
 
     [HttpPatch]
-    public async Task<AlteracaoProcessoResponse> PatchAsync(AlteracaoProcessoCommand command, CancellationToken cancellationToken)
+    public async Task<IActionResult> PatchAsync(AlteracaoProcessoCommand command, CancellationToken cancellationToken)
     {
-        return await _handler.Alteracao(command, cancellationToken);
+        var alteracao = await _handler.Alteracao(command, cancellationToken);
+        return alteracao.IsSuccess ? NoContent() : BadRequest(alteracao.Error);
     }
 
     [HttpPatch("AlteraStatus")]
-    public async Task<AlteracaoProcessoResponse> PatchStatusAsync(AlteracaoStatusProcessoCommand command, CancellationToken cancellationToken)
+    public async Task<IActionResult> PatchStatusAsync(AlteracaoStatusProcessoCommand command,
+        CancellationToken cancellationToken)
     {
-        return await _handler.AlteracaoStatus(command, cancellationToken);
+        var alteracaoStatus = await _handler.AlteracaoStatus(command, cancellationToken);
+        return alteracaoStatus.IsSuccess ? NoContent() : BadRequest(alteracaoStatus.Error);
     }
 }

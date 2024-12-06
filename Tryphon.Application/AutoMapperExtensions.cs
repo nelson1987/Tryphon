@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Tryphon.Application.Features;
+using Tryphon.Domain.Entities;
 
 namespace Tryphon.Application;
 
@@ -12,5 +14,6 @@ public static class AutoMapperExtensions
 
     public static IMapper Mapper => _lazy.Value;
 
-    public static T MapTo<T>(this object source) => Mapper.Map<T>(source);
+    public static T MapToEntity<T>(this ICommand source) => Mapper.Map<T>(source);
+    public static T MapToResponse<T>(this Entity source) => Mapper.Map<T>(source);
 }

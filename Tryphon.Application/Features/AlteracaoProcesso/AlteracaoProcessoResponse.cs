@@ -1,3 +1,3 @@
 ﻿namespace Tryphon.Application.Features.AlteracaoProcesso;
 
-public record AlteracaoProcessoResponse(int ProcessoId, int StatusId);
+public record AlteracaoProcessoResponse(int ProcessoId, int StatusId) : IResponse<AlteracaoProcessoCommand>;

@@ -29,7 +29,8 @@ public class UnitOfWorkUnitTests
     public async Task SaveChangeAsync_TudoFuncionandoCorretamente_RetornaSucesso()
     {
         //Instanciar
-        var processo = new Processo();
+        var processo = _fixture.Create<Processo>();
+        //var processo = new Processo();
         //Adicioanr
         await _sut.Processos.CreateAsync(processo, _token);
         //Salvar

@@ -7,6 +7,8 @@ public class AlteracaoProcessoMapping : Profile
 {
     public AlteracaoProcessoMapping()
     {
-        CreateMap<AlteracaoProcessoCommand, Processo>();
+        CreateMap<AlteracaoProcessoCommand, Processo>()
+            .ForMember(dest => dest.Endereco, ori => ori.Ignore())
+            .ForMember(dest => dest.Status, ori => ori.Ignore());
     }
 }

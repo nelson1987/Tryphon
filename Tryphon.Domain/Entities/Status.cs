@@ -9,7 +9,7 @@ public class Status : Entity
     {
         Sigla = sigla;
     }
-
+    public static Status Aberto => new Status("ABT");
     public string Sigla { get; private set; }
     public IReadOnlyCollection<Processo> Processos { get; private set; }
 }

@@ -34,7 +34,7 @@ public class ProcessoshandlerUnitTests
 
         var result = await _sut.Criacao(_command, _token);
 
-        result.Should().BeOfType<CriacaoProcessoResponse>();
+        result.Should().BeOfType<Result<CriacaoProcessoResponse>>();
         _unitOfWork
             .Verify(x => x.SaveChangesAsync(_token), Times.Once);
     }
@@ -48,7 +48,7 @@ public class ProcessoshandlerUnitTests
 
         var result = await _sut.Criacao(_command, _token);
 
-        result.Should().BeOfType<CriacaoProcessoResponse>();
+        result.Should().BeOfType<Result<CriacaoProcessoResponse>>();
         _unitOfWork
             .Verify(x => x.SaveChangesAsync(_token), Times.Once);
     }
@@ -60,10 +60,13 @@ public class ProcessoshandlerUnitTests
             .Setup(x => x.SaveChangesAsync(_token))
             .ThrowsAsync(new Exception("Exception"));
 
-        Func<Task> result = async () => await _sut.Criacao(_command, _token);
+        var result = await _sut.Criacao(_command, _token);
 
-        await result.Should().ThrowAsync<Exception>()
-            .WithMessage("Exception");
+        result.Should().BeOfType<Result<CriacaoProcessoResponse>>();
+        result.Error.Should().NotBeNull();
+        result.Error.Should().BeOfType<Error>();
+        result.Error!.Message.Should().Be("Ocorreu um erro inesperado. Exception");
+        
         _unitOfWork
             .Verify(x => x.SaveChangesAsync(_token), Times.Once);
     }

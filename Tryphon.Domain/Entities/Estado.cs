@@ -7,9 +7,13 @@ public class Estado : Entity
 
     public Estado(string sigla)
     {
+        Id = Id;
         Sigla = sigla;
+        _cidades = new List<Cidade>();
     }
 
     public string Sigla { get; private set; }
-    public IReadOnlyCollection<Cidade> Cidades { get; private set; }
+    
+    private readonly List<Cidade> _cidades;
+    public IReadOnlyCollection<Cidade> Cidades => _cidades.AsReadOnly();
 }
